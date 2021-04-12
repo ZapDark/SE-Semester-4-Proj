@@ -8,7 +8,7 @@ import jackson.reverse_tcp
 #When installing packages using the terminal please make sure you have navigated to your folder before installing
 #If you install into the SE-Semester-4-Proj folder your program wont be able to find it and wont work
 #Try to make your project start using one python file so that the menu can run it via the users input
-    #If this isnt possible just let me know. We can probably figure something out
+#If this isnt possible just let me know. We can probably figure something out
 
 def mainMenu():
     print("Welcome to the Indiana Tech Pen Testing Toolkit or the IT-PTT for short!")
