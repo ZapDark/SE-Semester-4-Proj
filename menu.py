@@ -1,6 +1,6 @@
 import os
-from pathlib import Path
 import jackson.reverse_tcp
+import dustin, jackson, maria, matthew, russel 
 
 #-------------PLEASE READ-------------#
 #Please put everything your project needs to function in your respective folder
@@ -10,8 +10,18 @@ import jackson.reverse_tcp
 #Try to make your project start using one python file so that the menu can run it via the users input
     #If this isnt possible just let me know. We can probably figure something out
 
+progList = []
+folderList = ['matthew', 'jackson', 'maria', 'russel', 'dustin']
+#files = os.listdir('matthew') + os.listdir('jackson') + os.listdir('maria') + os.listdir('russel') + os.listdir('dustin')
+
+for i in folderList:
+    files = os.listdir(i)
+    for f in files:
+        if '.py' in f:
+            progList.append(i + ' : ' + f)
+
 def mainMenu():
-    print("Welcome to the Indiana Tech Pen Testing Toolkit or the IT-PTT for short!")
+    print("\nWelcome to the Indiana Tech Pen Testing Toolkit or the IT-PTT for short!")
     print("Type --h for a list of commands and how to use them")
     while True:
         strChoice = input("\n"+"IT-PTT>> ")
@@ -20,23 +30,36 @@ def mainMenu():
         elif strChoice == "--l":
             listPrograms()
             break
+        elif strChoice == "--e":
+            return
         else:
             print("Invalid command. --help for list of commands")
 
 def menuHelp():
     print("\n"+"--help")
     print("--l Lists all programs")
-    print("--i Select which program to use, Ex. --i 1")
+    print("--i Select which program to use, ex: --i 1")
+    print("--e Exit")
 
 def listPrograms():
-    p = Path(".")
-    print(p.iterdir())
-    if p.is_dir():
-        print("True")
-        #jackson.reverse_tcp.Hello()
+    i = 1
+    for f in progList:   
+        print(str(i) + ': ' + f)
+        i = i + 1
+    print(str(i) + ': ' + 'main menu')
+    print('\nEnter a number:')
+    strChoice = input('\nIT-PTT>> ')
+    if (strChoice == '4'):
+        mainMenu()
     else:
-        print("False")
-    
-    
+        runProgram(strChoice)
 
+def runProgram(choice):
+    for index, value in enumerate(progList):
+        if int(choice) - 1 == index:            
+            parts = value.split(' : ')
+            print('starting ' + parts[0] + "'s " + parts[1] + '...')
+            os.system('py ' + parts[0] + '/'+ parts[1])
+
+#Start
 mainMenu()
