@@ -24,9 +24,6 @@ for key, val in snapshot.items():
     x = (unparsed.replace('}', '').replace('{', '').replace('address','').replace(':', '').replace("'", "").replace('"', "").replace(' ',''))
     emailaddress.append(x)
 
-
-print(emailaddress)
-
 print("Would you like to send emails or enter emails into database?")
 enterorsend = input("Type 'enter', 'send', or any other key to exit: ")
 
