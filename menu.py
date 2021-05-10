@@ -1,5 +1,4 @@
 import os
-import jackson.reverse_tcp
 import dustin, jackson, maria, matthew, russel 
 
 #-------------PLEASE READ-------------#
@@ -38,7 +37,6 @@ def mainMenu():
 def menuHelp():
     print("\n"+"--help")
     print("--l Lists all programs")
-    print("--i Select which program to use, ex: --i 1")
     print("--e Exit")
 
 def listPrograms():
